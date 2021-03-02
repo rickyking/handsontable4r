@@ -1,0 +1,7 @@
+dependencies:
+ - name: handsontable
+   version: 8.3.1
+   src: "htmlwidgets/lib/handsontable"
+   script:
+     - handsontable.full.min.js
+   stylesheet: handsontable.full.min.css
