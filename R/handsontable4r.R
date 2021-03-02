@@ -67,5 +67,5 @@ renderHandsontable4r <-
     if (!quoted) {
       expr <- substitute(expr)
     } # force quoted
-    shinyRenderWidget(expr, sigmaOutput, env, quoted = TRUE)
+    shinyRenderWidget(expr, handsontable4rOutput, env, quoted = TRUE)
   }

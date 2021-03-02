@@ -6,8 +6,7 @@ HTMLWidgets.widget({
 
     factory: function (el, width, height) {
 
-        // create our sigma object and bind it to the element
-        //   var tbl = new sigma(el.id);
+
 
         return {
             renderValue: function (x) {
