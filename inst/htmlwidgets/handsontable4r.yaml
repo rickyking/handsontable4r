@@ -5,3 +5,7 @@ dependencies:
    script:
      - handsontable.full.min.js
    stylesheet: handsontable.full.min.css
+ - name: chroma
+   version: 1.3.3
+   src: "htmlwidgets/lib/chroma"
+   script: chroma.min.js
