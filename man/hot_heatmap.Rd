@@ -4,7 +4,12 @@
 \alias{hot_heatmap}
 \title{Handsontable widget}
 \usage{
-hot_heatmap(hot, cols, color_scale = c("#ED6D47", "#17F556"), renderer = NULL)
+hot_heatmap(
+  hot,
+  cols,
+  color_scale = c("#ED6D47", "#FFFFFF", "#17F556"),
+  renderer = NULL
+)
 }
 \arguments{
 \item{hot}{rhandsontable object}
@@ -21,11 +26,4 @@ to determine the cell colors. If missing,
 }
 \description{
 Add heatmap to table.
-}
-\examples{
-MAT = matrix(rnorm(50), nrow = 10, dimnames = list(LETTERS[1:10],
-             letters[1:5]))
-
-rhandsontable(MAT) \%>\%
- hot_heatmap()
 }

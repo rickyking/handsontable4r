@@ -10,12 +10,6 @@
 #' @param renderer character defining a Javascript function to be used
 #'  to determine the cell colors. If missing,
 #'  \code{rhandsontable:::renderer_heatmap} is used.
-#' @examples
-#' MAT = matrix(rnorm(50), nrow = 10, dimnames = list(LETTERS[1:10],
-#'              letters[1:5]))
-#'
-#'rhandsontable(MAT) %>%
-#'  hot_heatmap()
 #' @export
 hot_heatmap = function(hot, cols, color_scale = c("#ED6D47", "#FFFFFF", "#17F556"),
                        renderer = NULL) {
