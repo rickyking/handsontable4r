@@ -17,6 +17,7 @@ handsontable4r <- function(data,
                            readonly = TRUE,
                            rownames = NULL,
                            rowHeaderWidth = NULL,
+                           nestedHeaders = NULL,
                            digits = 3) {
   col_typs <- get_col_types(data)
 
@@ -80,6 +81,11 @@ handsontable4r <- function(data,
 
   if (!is.null(rowHeaderWidth)) {
     x$rowHeaderWidth = rowHeaderWidth
+  }
+
+  if (!is.null(nestedHeaders)) {
+    # x$colHeaders = TRUE
+    x$nestedHeaders = nestedHeaders
   }
 
   # create the widget

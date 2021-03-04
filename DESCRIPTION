@@ -1,7 +1,7 @@
 Package: handsontable4r
 Type: Package
 Title: handsontable4r
-Version: 0.2.1
+Version: 0.2.2
 Author: Yi Jin
 Maintainer: Yi Jin <mr.jinyi@gmail.com>
 Description: Pack handsontable 8.3.1 into one.
