@@ -63,6 +63,11 @@ handsontable4r <- function(data,
       'filter_by_value',
       'filter_action_bar'
     ),
+    contextMenu = c(
+      'hidden_columns_show',
+      'hidden_columns_hide'
+    ),
+    hiddenColumns = list("indicators" = TRUE),
     filters = TRUE,
     licenseKey = 'non-commercial-and-evaluation',
     rowHeaderWidth = rowHeaderWidth,
