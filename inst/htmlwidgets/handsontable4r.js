@@ -6,7 +6,10 @@ HTMLWidgets.widget({
 
     factory: function (el, width, height) {
 
-
+        var container = document.getElementById(el.id);
+        var hot = new Handsontable(container, {
+            licenseKey: "non-commercial-and-evaluation"
+        });
 
         return {
             renderValue: function (x) {
@@ -30,8 +33,8 @@ HTMLWidgets.widget({
                 }
 
                 // console.log(x);
-                var container = document.getElementById(el.id);
-                var hot = new Handsontable(container, x);
+                hot.params = x;
+                hot.updateSettings(x);
 
             },
 
@@ -50,7 +53,9 @@ HTMLWidgets.widget({
 
             updateHeatmap: function (change, source) {
                 this.heatmap[change[0][1]] = generateHeatmapData.call(this, change[0][1]);
-            }
+            },
+
+            hot: hot
         };
     }
 });
