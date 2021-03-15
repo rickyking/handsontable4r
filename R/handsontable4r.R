@@ -72,8 +72,8 @@ handsontable4r <- function(data,
     licenseKey = 'non-commercial-and-evaluation',
     rowHeaderWidth = rowHeaderWidth,
     multiColumnSorting = TRUE,
-    autoRowSize = TRUE,
-    autoColumnSize = TRUE,
+    autoRowSize = list(syncLimit = '80%'),
+    autoColumnSize = list(syncLimit = '80%'),
     className = "htCenter htMiddle",
     afterGetRowHeader = htmlwidgets::JS("function(col, TH) {
       TH.className = 'htMiddle'
