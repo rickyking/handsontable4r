@@ -18,6 +18,7 @@ handsontable4r <- function(data,
                            rownames = NULL,
                            rowHeaderWidth = NULL,
                            nestedHeaders = NULL,
+                           fixedColumnsLeft = NULL,
                            digits = 3) {
   col_typs <- get_col_types(data)
 
@@ -91,6 +92,10 @@ handsontable4r <- function(data,
   if (!is.null(nestedHeaders)) {
     # x$colHeaders = TRUE
     x$nestedHeaders = nestedHeaders
+  }
+
+  if (!is.null(fixedColumnsLeft)) {
+    x$fixedColumnsLeft = fixedColumnsLeft
   }
 
   # create the widget
