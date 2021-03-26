@@ -1,6 +1,8 @@
 library(handsontable4r)
 library(shiny)
-library(shinydashboard)
+library(tidyverse)
+library(bs4Dash)
+# library(shinydashboard)
 
 # handsontable4r(data.frame(x = seq(1, 10), y = seq(11, 20)))
 min_color <- list(pch = ".", cex = 4, col = "red")
@@ -45,7 +47,7 @@ ui <- dashboardPage(
   dashboardBody(
     # Boxes need to be put in a row (or column)
     fluidRow(
-      box(handsontable4rOutput("hot", width = "100%", height = "1000px")),
+      box(handsontable4rOutput("hot")),
 
       box(
         title = "Controls",
@@ -57,8 +59,8 @@ ui <- dashboardPage(
 
 server <- function(input, output) {
   output$hot <- renderHandsontable4r({
-      handsontable4r(df %>% select(-ticker),
-                     rownames = df$ticker,
+      handsontable4r(df,
+                     rownames = TRUE,
                      rowHeaderWidth = 100,
                      fixedColumnsLeft = 1,
                      height = 1000,

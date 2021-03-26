@@ -9,3 +9,7 @@ dependencies:
    version: 1.3.3
    src: "htmlwidgets/lib/chroma"
    script: chroma.min.js
+ - name: handsontable4r
+   version: 0.1.0
+   src: "htmlwidgets"
+   stylesheet: handsontable4r.css
