@@ -56,6 +56,7 @@ handsontable4r <- function(data,
     ),
     height=height,
     width=width,
+    persistentState=TRUE,
     colHeaders =  colnames(data),
     columns = cols,
     dropdownMenu = c(

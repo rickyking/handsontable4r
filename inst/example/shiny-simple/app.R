@@ -51,7 +51,7 @@ ui <- dashboardPage(
 
       box(
         title = "Controls",
-        sliderInput("slider", "Number of observations:", 1, 100, 50)
+        sliderInput("slider", "Number of observations:", 1, 100, 1)
       )
     )
   )
@@ -59,6 +59,9 @@ ui <- dashboardPage(
 
 server <- function(input, output) {
   output$hot <- renderHandsontable4r({
+
+    df['Last'] = df['Last'] + input$slider
+
       handsontable4r(df,
                      rownames = TRUE,
                      rowHeaderWidth = 100,

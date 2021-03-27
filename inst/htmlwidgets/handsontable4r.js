@@ -31,7 +31,22 @@ HTMLWidgets.widget({
                         });
                     }));
                 }
+                var sort_settings;
+                x.beforeLoadData = function (change, source) {
+                    console.log("beforeLoadData")
+                    var plugin = this.getPlugin('multiColumnSorting');
+                    if (plugin.isSorted()) {
+                        sort_settings = plugin.getSortConfig();
+                    }
 
+                };
+                x.afterChange = function (change, source) {
+                    console.log("after change")
+                    var plugin = this.getPlugin('multiColumnSorting');
+                    if (sort_settings) {
+                        plugin.sort(sort_settings);
+                    }
+                };
                 // console.log(x);
                 hot.params = x;
                 hot.updateSettings(x);
