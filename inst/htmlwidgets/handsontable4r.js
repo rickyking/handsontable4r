@@ -40,7 +40,11 @@ HTMLWidgets.widget({
                         sort_settings = plugin.getSortConfig();
                     };
                     var filtersPlugin = hot.getPlugin('filters');
-                    filter_collection = Object.assign({}, filtersPlugin.conditionCollection);
+                    obj = filtersPlugin.conditionCollection;
+                    if (!jQuery.isEmptyObject(obj)) {
+                        filter_collection = JSON.parse(JSON.stringify(obj.filteringStates.indexedValues));
+                    };
+
                 };
                 x.afterChange = function (change, source) {
                     console.log("after change")
@@ -50,7 +54,19 @@ HTMLWidgets.widget({
                     };
                     var filtersPlugin = hot.getPlugin('filters');
                     if (!jQuery.isEmptyObject(filter_collection)) {
-                        filtersPlugin.conditionCollection = filter_collection;
+                        // filtersPlugin.conditionCollection = Object.assign({}, filter_collection);
+                        conditions = Object.assign({}, filter_collection);
+
+                        for (let [key, value] of Object.entries(conditions)) {
+                            if (value) {
+                                column_id = key;
+                                operation_id = value.operation;
+                                value.conditions.forEach(function (value, index) {
+                                    filtersPlugin.addCondition(column_id, value.name, value.args, operation_id)
+                                });
+                            }
+                        }
+
                         filtersPlugin.filter();
                     };
 
