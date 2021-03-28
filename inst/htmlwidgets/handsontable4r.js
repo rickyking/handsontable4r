@@ -32,20 +32,28 @@ HTMLWidgets.widget({
                     }));
                 }
                 var sort_settings;
+                var filter_collection;
                 x.beforeLoadData = function (change, source) {
                     console.log("beforeLoadData")
                     var plugin = this.getPlugin('multiColumnSorting');
                     if (plugin.isSorted()) {
                         sort_settings = plugin.getSortConfig();
-                    }
-
+                    };
+                    var filtersPlugin = hot.getPlugin('filters');
+                    filter_collection = Object.assign({}, filtersPlugin.conditionCollection);
                 };
                 x.afterChange = function (change, source) {
                     console.log("after change")
                     var plugin = this.getPlugin('multiColumnSorting');
                     if (sort_settings) {
                         plugin.sort(sort_settings);
-                    }
+                    };
+                    var filtersPlugin = hot.getPlugin('filters');
+                    if (!jQuery.isEmptyObject(filter_collection)) {
+                        filtersPlugin.conditionCollection = filter_collection;
+                        filtersPlugin.filter();
+                    };
+
                 };
                 // console.log(x);
                 hot.params = x;
